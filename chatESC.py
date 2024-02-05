@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
-"""MMN Chatbot.ipynb
-
-En este proyecto colaboraron:
--   Natalia Sánchez Patiño,  github: @Natalia-SP
--   Mario Rosas Otero,       github: @Mariuki
--   Mario Velázquez Vilchiz, github: @mvvazta
+"""BOTACL.ipynb
 
 """
 ### Librerias ###
@@ -68,14 +63,14 @@ Area_inv = list(pd.unique(Inv['Área del Conocimiento']))
 OP_ENTRETENIMIENTO = ["videos", "peliculas", "series", "musica", "libros","videojuegos","juegos"]
 OP_ACADEMICO = ["articulo", "investigador", "investigadores", "articulos", "definiciones"]
 
-SALUDOS_IN = ['Hola! Soy MMN Bot, mi especialidad es dar recomendaciones! ¿Que tal va tu día?', 'Hola! ¿Qué tál te sientes hoy?', 'Que onda, soy MMN Bot! ¿Como te llamas?']
+SALUDOS_IN = ['Hola! Soy un Bot, mi especialidad es dar recomendaciones! ¿Que tal va tu día?', 'Hola! ¿Qué tál te sientes hoy?', 'Que tál, soy un Bot! ¿Como te llamas?']
 SALUDOS = ['hello', 'hi', 'hey', 'hola', 'welcome', 'bonjour', 'greetings', 'que onda', 'holi']
 SALUDOS_RESP = ["Hola, es cool hablar contigo!", 'Gusto en conocerte!',  "Hey - ¡Vamos a platicar un poco!"]
 
-PREGUNTA_1 = ["¿Qué quisieras que te recomendara, tengo la sección de entretenimiento, académico y covid", "Muy bien, continuemos! ¿Buscas algo académico, de entretenimiento o información sobre Covid?", "Me caes bien, puedo recomendarte algo académico, algo de entretenimiento o de Covid, ¿cuál prefieres?", "Sos la ostía, tengo para vosotros algo de entretenimiento, de covid o algo académico, elige..."]
+PREGUNTA_1 = ["¿Qué quisieras que te recomendara, tengo la sección de entretenimiento y académico", "Muy bien, continuemos! ¿Buscas algo académico o de entretenimiento?", "Me caes bien, puedo recomendarte algo académico, algo de entretenimiento o de Covid, ¿cuál prefieres?", "Sos la ostía, tengo para vosotros algo de entretenimiento, de covid o algo académico, elige..."]
 
 LEER_NOMBRES = Nombres
-DECIR_NOMBRES = ['gusto en conocerte,  vamoa platicar :D', 'esta bien curado tu nombre, es un gusto.', ", ese nombre mola!, es un gusto conocerte.",'Gusto en conocerte!' , "Hey - ¡Vamos a platicar un poco!"]
+DECIR_NOMBRES = ['gusto en conocerte,  vamoa platicar :D', 'esta bien curado tu nombre, es un gusto.', ", ese nombre mola!, es un gusto conocerte.",'Gusto en conocerte!' , "Hey - ¡Vamos a hablar un poco!"]
 
 LEER_MUSICA = categorias_musica
 
@@ -694,7 +689,7 @@ def switcher_general(key,tunombre):
 
 def general(tunombre):
     msg = leer_mensaje(tunombre)
-    primer_mensaje = encontrar_en_lista(msg, ["entretenimiento","academico","covid"])
+    primer_mensaje = encontrar_en_lista(msg, ["entretenimiento","academico","entretenimiento"])
     if primer_mensaje:
         switcher_general(primer_mensaje, tunombre)
     else:
@@ -709,7 +704,7 @@ def general(tunombre):
 
 def chatear():
     """función principal para tener un chat."""
-    print(chr(27)+"[1;34m"+'Qué tál! Soy tu amigo MMN Bot! ¿Cuál es tu nombre?: \n')
+    print(chr(27)+"[1;34m"+'Qué tál! Soy tu amigo un Bot! ¿Cuál es tu nombre?: \n')
 
     chat = True
     tunombre = None
@@ -745,7 +740,7 @@ def chatear():
 
         msg = leer_mensaje(tunombre)
         if terminar_chat(msg):
-            msg_salida = 'Adios!'
+            msg_salida = 'Adios'
             print(chr(27)+"[1;34m"+'CHATBOT: \t'+ msg_salida)
 
             chat = False

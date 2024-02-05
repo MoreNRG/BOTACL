@@ -5,7 +5,6 @@
 ### Librerias ###
 
 import string
-from covid import Covid
 import random
 import nltk
 import pandas as pd
